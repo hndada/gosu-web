@@ -1,0 +1,93 @@
+
+/* .settings {
+    display: flex;
+    flex-direction: row;
+  } */
+
+.info {
+    width: 60vw;
+    min-width: 400px;
+    height: 25vh;
+    border: 5px solid rgb(230, 252, 179);
+    /* border-style: ridge; */
+    /* padding : border와 content사이에 주는 간격 */
+    /* margin: 5px; */
+    /* padding: 5px; */
+    /* margin-top: -10px; */
+    /* padding-top: 0px; */
+    position: relative;
+    color: white;
+    overflow: hidden;
+
+    border-radius: 25px;
+    background: #e0e0e0;
+    box-shadow: 19px 19px 38px #bebebe,
+        -19px -19px 38px #ffffff;
+}
+/* :first-child: 요소가 맏이일 경우에만 선택 */
+/* ::before: 요소의 맏이를 생성하여 선택 */
+.info::before {
+    content: '';
+    display: block;
+    
+    height: 100%;
+    filter: brightness(60%);
+    background-image: var(--image-url);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.music {
+    /* 좌상 */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.chart {
+    /* 좌하 */
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.level {
+    /* 우하 */
+    text-align: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.time {
+    /* 우상 */
+    text-align: right;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.music-name,
+.level-number {
+    font-size: 22px;
+}
+
+.artist-name,
+.chart-name {
+    font-size: 18px;
+}
+
+.charter-name {
+    font-size: 14px;
+}
+
+.duration,
+.bpm {
+    font-size: 14px;
+}
+
+.update-date {
+    font-size: 10px;
+}
+

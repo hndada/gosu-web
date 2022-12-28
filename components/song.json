@@ -1,0 +1,39 @@
+{
+    "SetId": 320687,
+    "ChildrenBeatmaps": [
+      {
+        "BeatmapId": 713545,
+        "ParentSetId": 320687,
+        "DiffName": "Easy",
+        "FileMD5": "b70fdf2f957b426d9c802fbb952d418b",
+        "Mode": 0,
+        "BPM": 120,
+        "AR": 5,
+        "OD": 5,
+        "CS": 5,
+        "HP": 5,
+        "TotalLength": 204,
+        "HitLength": 175,
+        "Playcount": 0,
+        "Passcount": 0,
+        "MaxCombo": 173,
+        "DifficultyRating": 2.08334,
+        "OsuFile": "spro333 - Renatus (spro333) [Easy].osu",
+        "DownloadPath": "/d/320687"
+      }
+    ],
+    "RankedStatus": -2,
+    "ApprovedDate": "",
+    "LastUpdate": "2015-06-06T18:41:42.000Z",
+    "LastChecked": "2022-04-04T07:01:34.000Z",
+    "Artist": "Soleliy",
+    "Title": "Renatus",
+    "Creator": "spro333",
+    "Source": "",
+    "Tags": "",
+    "HasVideo": false,
+    "Genre": 1,
+    "Language": 1,
+    "Favourites": 0,
+    "Disabled": false
+  }

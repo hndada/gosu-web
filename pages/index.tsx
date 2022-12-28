@@ -1,12 +1,8 @@
-import Link from 'next/link'
+// import Link from 'next/link'
+import Select from './choice'
 
 export default function IndexPage() {
   return (
-    <div>
-      Hello World.{' '}
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </div>
+    <Select />
   )
 }
