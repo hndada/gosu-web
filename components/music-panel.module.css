@@ -5,7 +5,7 @@
   } */
 
 .info {
-    width: 60vw;
+    width: 50vw;
     min-width: 400px;
     height: 25vh;
     border: 5px solid rgb(230, 252, 179);
@@ -70,24 +70,24 @@
 
 .music-name,
 .level-number {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .artist-name,
 .chart-name {
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .charter-name {
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .duration,
 .bpm {
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .update-date {
-    font-size: 10px;
+    font-size: 16px;
 }
 

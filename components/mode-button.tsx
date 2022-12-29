@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const style = css`
  position: absolute;
@@ -91,14 +91,23 @@ const style = css`
 &:focus:not(:focus-visible) {
  outline: none;
 }
+.button0 {
+    background: hsl(15deg 100% 47%);
+    background-color: bisque;
+    color: yellow;
+}
 `
-export default function ModeButton() {
-    const [mode, setMode] = useState<number>(0);
+// style={{backgroundColor: color}}
+// className={`button${mode}`}
+export default function ModeButton({mode, setMode}) {
+    // const ref=useRef(null);
     const handleClick = () => {
         setMode((mode) => (mode + 1) % 3);
+        console.log(mode)
     };
+    // const color = mode === 0 ? 'button-red' : mode === 1 ? 'green' : 'blue';
     return (
-        <button css={style} onClick={handleClick}>
+        <button css={style} onClick={handleClick}> 
             <span className="shadow"></span>
             <span className="edge"></span>
             <span className="front text"> Mode: {["Piano4", "Piano7", "Drum"][mode]}

@@ -2,34 +2,21 @@
 // const style = css``
 import styles from "../components/chart-list.module.css";
 
-export default function ChartList({setChosen}) {
+export default function ChartList({ chartSets, setChartSetIndex }) {
     // return <div css={style}>
     return <div className={styles["chart-list"]}>
-        {[...Array(20)].map((_, i) => (
+        {[...chartSets].map((chart, i) => (
             <div className={styles["chart-item"]} key={i} onClick={(event) => {
                 event.currentTarget.scrollIntoView({
                     behavior: 'smooth',
                     block: 'center'
-                  });
-                setChosen(i);
+                });
+                setChartSetIndex(i);
             }}>
-                Item {i + 1}
+                {chart.Title}
+                {/* {chart.DifficultyRating} */}
             </div>
         ))}
     </div>
 }
 
-// function ChartItem() {
-//     const handleClick = (event) => {
-//       event.currentTarget.scrollIntoView({
-//         behavior: 'smooth',
-//         block: 'center'
-//       });
-//     };
-//     return (
-//       <div>
-//         {/* The rest of the component goes here */}
-//         <div onClick={handleClick}>This element will be scrolled into view</div>
-//       </div>
-//     );
-//   }

@@ -1,0 +1,99 @@
+.chart-list2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* make the flexbox layout vertical */
+    color: white;
+    transform: translate(0%, -50%);
+    position: absolute;
+    left: 10px;
+    top: 25vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+}
+
+.chart-list2::before {
+    content: '';
+    height: 50%;
+    /* set the height of the pseudo-element to the height of the screen */
+    visibility: hidden;
+    /* hide the pseudo-element */
+    position: relative;
+    padding-top: 40vh;
+}
+
+.chart-list2::after {
+    content: '';
+    position: relative;
+    padding-bottom: 40vh;
+    /* make the last item a relative position element */
+    /* bottom: 50%; */
+    /* align the last item with the middle of the screen */
+}
+
+.chart-list2::-webkit-scrollbar {
+    width: 0;
+    background-color: #000000;
+}
+
+.chart-list2::-webkit-scrollbar-thumb {
+    width: 0;
+    background-color: #000000;
+}
+
+.chart-item2 {
+    --color: #560bad;
+    font-family: inherit;
+    display: inline-block;
+    /* width: 8em; */
+    /* height: 2.6em; */
+    /* line-height: 2.5em; */
+    margin: 20px;
+    position: relative;
+    /* overflow: hidden; */
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 10;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+
+    left: 50vw;
+    /* top: 50vh; */
+    width: 50vw;
+    height: 100px;
+}
+
+.chart-item2:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    width: 400%;
+    height: 300%;
+    min-height: 150px;
+    min-width: 200px;
+    border-radius: 50%;
+}
+
+.chart-item2:hover {
+    color: #fff;
+}
+
+.chart-item2:before {
+    top: 50%;
+    left: 100%;
+    transition: all 1s;
+}
+
+.chart-item2:hover:before {
+    top: -55%;
+    left: -55%;
+}
+
+.chart-item2:active:before {
+    background: #3a0ca3;
+    transition: background 0s;
+}

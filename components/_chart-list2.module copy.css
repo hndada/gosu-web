@@ -1,0 +1,86 @@
+.chart-list2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* make the flexbox layout vertical */
+    color: white;
+    transform: translate(0%, -50%);
+    position: absolute;
+    left: 10px;
+    top: 25vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+}
+
+.chart-list2::before {
+    content: '';
+    height: 50%;
+    /* set the height of the pseudo-element to the height of the screen */
+    visibility: hidden;
+    /* hide the pseudo-element */
+    position: relative;
+    padding-top: 40vh;
+}
+
+.chart-list2::after {
+    content: '';
+    position: relative;
+    padding-bottom: 40vh;
+    /* make the last item a relative position element */
+    /* bottom: 50%; */
+    /* align the last item with the middle of the screen */
+}
+
+.chart-list2::-webkit-scrollbar {
+    width: 0;
+    background-color: #000000;
+}
+
+.chart-list2::-webkit-scrollbar-thumb {
+    width: 0;
+    background-color: #000000;
+}
+
+/* === removing default button style ===*/
+.chart-item2 {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+  
+  /* button styling */
+  .chart-item2 {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #37FF8B;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  /* this is the text, when you hover on button */
+  .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+  /* hover */
+  .chart-item2:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+  }
