@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import Loading from "../components/loading";
 import MusicPanel from "../components/music-panel";
 import SearchBox from "../components/search-box";
-import ChartList from "../components/chart-list";
+import MusicList from "../components/music-list";
 import Background from "../components/background";
 import ModeButton from "@Components/mode-button";
-import AudioPlayer from "@Components/audio-player";
-// import ChartItem2 from "@Components/chart-list2";
-import ChartList2 from "@Components/chart-list2";
 import KeySettings from "@Components/key-settings";
+import ChartList from "../components/chart-list";
+import PreviewPlayer from "@Components/preview-player";
 
 export default function ChoicePage() {
     const [mode, setMode] = useState<number>(0);
@@ -34,21 +33,21 @@ export default function ChoicePage() {
     let dogID = 723231;
     let chartSet = chartSets[chartSetIndex];
     let charts = chartSet?.ChildrenBeatmaps;
-    let defaultKeySettingsSet = [
-        ['d', 'f', 'j', 'k'],
-        ['s', 'd', 'f', 'Space', 'j', 'k', 'l'],
-        ['z', 'x', 'c', 'v']]
+    // let defaultKeySettingsSet = [
+    //     ['d', 'f', 'j', 'k'],
+    //     ['s', 'd', 'f', 'Space', 'j', 'k', 'l'],
+    //     ['z', 'x', 'c', 'v']]
     return <>
         {chartSetIndex === undefined ?
             <Background chosenChartSetID={dogID} /> :
             <Background chosenChartSetID={chartSet.SetId} />}
         <SearchBox mode={mode} setChartSets={setChartSets} />
         {chartSet != undefined && <MusicPanel chartSet={chartSet} />}
-        <AudioPlayer setID={chartSet.SetId} />
-        <ChartList chartSets={chartSets} setChartSetIndex={setChartSetIndex} />
-        <ChartList2 mode={mode} charts={charts} setChartIndex={setChartIndex} />
+        <PreviewPlayer setID={chartSet.SetId} />
+        <MusicList chartSets={chartSets} setChartSetIndex={setChartSetIndex} />
+        <ChartList mode={mode} charts={charts} setChartIndex={setChartIndex} />
         <ModeButton mode={mode} setMode={setMode} />
-        <KeySettings mode={mode} defaultKeySettings={defaultKeySettingsSet[mode]} />
+        <KeySettings mode={mode} />
     </>
 }
 

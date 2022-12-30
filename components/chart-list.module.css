@@ -1,13 +1,13 @@
 .chart-list {
-    height: 100%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     /* make the flexbox layout vertical */
     color: white;
-    transform: translate(0%, -50%);
+    /* transform: translate(0%, -50%); */
     position: absolute;
-    right: 10px;
-    top: 50vh;
+    left: 10px;
+    /* top: 40vh; */
     overflow-y: scroll;
     scroll-behavior: smooth;
     -webkit-scroll-behavior: smooth;
@@ -15,12 +15,12 @@
 
 .chart-list::before {
     content: '';
-    height: 50%;
+    /* height: 50%; */
     /* set the height of the pseudo-element to the height of the screen */
     visibility: hidden;
     /* hide the pseudo-element */
     position: relative;
-    padding-top: 40vh;
+    /* padding-top: 40vh; */
 }
 
 .chart-list::after {
@@ -60,19 +60,17 @@
 
 .chart-item {
     width: 400px;
-    /* height: 1160px; */
-    flex: 0 0 105px;
-    display: flex;
-    align-items: center;
-    /* text-align: center; */
-    /* justify-content: center; */
+    /* min-width: 200px; */
+    max-height: 160px;
+    /* height: 15vh; */
+    /* min-height:  */
+
     --glow-rgb: 236, 219, 251;
     --glow-color: rgb(var(--glow-rgb));
     --glow-spread-color: rgba(191, 123, 255, 0.781);
     --enhanced-glow-color: rgb(231, 206, 255);
     /* --btn-color: rgb(100, 61, 136); */
     border: .25em solid var(--glow-color);
-    /* padding: 1em 3em; */
     padding: .5em 1.5em;
     color: var(--glow-color);
     font-size: 20px;
@@ -87,7 +85,7 @@
     /* position: relative; */
     transition: all 0.2s;
     user-select: none;
-    word-break: keep-all;
+    word-break:keep-all;
 }
 
 .chart-item::after {

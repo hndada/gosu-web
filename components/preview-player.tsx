@@ -8,7 +8,7 @@ const style = css`
     transition: translateX(-50%);
     z-index: 2;
 `
-export default function AudioPlayer({ setID }) {
+export default function PreviewPlayer({ setID }) {
     // setID가 바뀌면, preview 오디오 파일 요청
     const ref = useRef<HTMLAudioElement>(null);
     useEffect(() => {
