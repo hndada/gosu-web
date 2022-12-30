@@ -59,7 +59,8 @@
 } */
 
 .chart-item {
-    width: 400px;
+    max-width: 400px;
+    width: 30vw;
     /* min-width: 200px; */
     max-height: 160px;
     /* height: 15vh; */

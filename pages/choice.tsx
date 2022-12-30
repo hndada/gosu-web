@@ -16,7 +16,7 @@ export default function ChoicePage() {
     // const [query, setQuery] = useState<any>();
     const [chartSets, setChartSets] = useState<any>();
     const [chartSetIndex, setChartSetIndex] = useState<number>(0);
-    const [chart, setChart] = useState<any>();
+    // const [chart, setChart] = useState<any>();
     const [chartIndex, setChartIndex] = useState<number>();
     // const [chosen, setChosen] = useState<number>(0);
     useEffect(() => {
@@ -25,8 +25,21 @@ export default function ChoicePage() {
             .then((data) => {
                 setChartSets(data["data"])
             });
-    }, []
-    )
+    }, []);
+
+    useEffect(() => {
+        if (!chartSets) { return }
+        let chart = chartSets[chartSetIndex].ChildrenBeatmaps[chartIndex];
+        window.open('/play', '_blank');
+        localStorage.setItem('setID', chart.ParentSetId);
+        localStorage.setItem('mode', chart.Mode);
+        localStorage.setItem('cs', chart.CS);
+        localStorage.setItem('osuFile', chart.OsuFile);
+        localStorage.setItem('downloadPath', chart.DownloadPath);
+        // playChart({ chart, });
+        // 파라미터 전달: chart, keySettings
+    }, [chartIndex]);
+
     if (!chartSets) {
         return <Loading />
     }
@@ -51,6 +64,8 @@ export default function ChoicePage() {
     </>
 }
 
+
+
 // fetch(`https://api.chimu.moe/v1/d/${setID}`)
 //     .then((res) => {
 //         return res.arrayBuffer()
@@ -67,7 +82,5 @@ export default function ChoicePage() {
 //         const result = wasm.exports.someFunction(arg1, arg2, ...);
 //         console.log(result);
 //     });
-
-// 새 창에서 켜기
 
 // https://api.chimu.moe/v1/search?query=peppy&amount=100&offset=0&status=0&mode=0&min_cs=0&max_cs=0

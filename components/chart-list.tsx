@@ -43,6 +43,7 @@ function parseLevel(level) {
     return level < 1 ? 1 : (level - 1) / 0.25 + 2;
     // return Math.floor(Math.pow(level, 1.7));
 }
+
 // function ChartItem() {
 //     const handleClick = (event) => {
 //       event.currentTarget.scrollIntoView({

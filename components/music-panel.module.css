@@ -1,6 +1,7 @@
 .info {
-    width: 50vw;
-    min-width: 400px;
+    max-width: 800px;
+    width: 45vw;
+    /* min-width: 400px; */
     height: 25vh;
     border: 5px solid rgb(230, 252, 179);
     /* border-style: ridge; */

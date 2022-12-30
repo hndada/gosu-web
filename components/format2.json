@@ -1,0 +1,83 @@
+{
+    "data": [
+      {
+        "SetId": 677891,
+        "ChildrenBeatmaps": [
+          {
+            "BeatmapId": 1433502,
+            "ParentSetId": 677891,
+            "DiffName": "Easy",
+            "FileMD5": "5c48089fc3603fc7ed416c147a206dce",
+            "Mode": 3,
+            "BPM": 147.5,
+            "AR": 5,
+            "OD": 6,
+            "CS": 4,
+            "HP": 6,
+            "TotalLength": 47,
+            "HitLength": 45,
+            "Playcount": 15624,
+            "Passcount": 7569,
+            "MaxCombo": 0,
+            "DifficultyRating": 1.29356,
+            "OsuFile": "Jason Hayes - War (Feerum) [Easy].osu",
+            "DownloadPath": "/d/677891"
+          },
+          {
+            "BeatmapId": 1433503,
+            "ParentSetId": 677891,
+            "DiffName": "Hard",
+            "FileMD5": "8cd4db72f0ad2380274276e829b01978",
+            "Mode": 3,
+            "BPM": 147.5,
+            "AR": 5,
+            "OD": 8,
+            "CS": 4,
+            "HP": 8,
+            "TotalLength": 47,
+            "HitLength": 46,
+            "Playcount": 25704,
+            "Passcount": 9405,
+            "MaxCombo": 0,
+            "DifficultyRating": 2.71468,
+            "OsuFile": "Jason Hayes - War (Feerum) [Hard].osu",
+            "DownloadPath": "/d/677891"
+          },
+          {
+            "BeatmapId": 1433504,
+            "ParentSetId": 677891,
+            "DiffName": "Normal",
+            "FileMD5": "6b8ab0133638e12bf49b4696f2337923",
+            "Mode": 3,
+            "BPM": 147.5,
+            "AR": 5,
+            "OD": 7,
+            "CS": 4,
+            "HP": 7,
+            "TotalLength": 47,
+            "HitLength": 46,
+            "Playcount": 17136,
+            "Passcount": 8847,
+            "MaxCombo": 0,
+            "DifficultyRating": 1.83422,
+            "OsuFile": "Jason Hayes - War (Feerum) [Normal].osu",
+            "DownloadPath": "/d/677891"
+          }
+        ],
+        "RankedStatus": 1,
+        "ApprovedDate": "2018-11-17T11:20:08.000Z",
+        "LastUpdate": "2018-09-24T21:12:05.000Z",
+        "LastChecked": "2022-04-06T07:11:53.000Z",
+        "Artist": "Jason Hayes",
+        "Title": "War",
+        "Creator": "Feerum",
+        "Source": "World of Warcraft",
+        "Tags": "blizzard entertainment tracy w. bush derek duke glenn stafford wow ost original soundtrack 30",
+        "HasVideo": false,
+        "Genre": 2,
+        "Language": 5,
+        "Favourites": 27,
+        "Disabled": false
+      }
+    ]
+  }

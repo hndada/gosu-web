@@ -40,6 +40,7 @@ export default function KeySettings({ mode }) {
         setPiano4(prev => {
           const newKeySettings = [...prev];
           newKeySettings[cursor] = event.key;
+          localStorage.setItem('keySettings',newKeySettings.toString());
           return newKeySettings
         });
       }
@@ -47,6 +48,7 @@ export default function KeySettings({ mode }) {
         setPiano7(prev => {
           const newKeySettings = [...prev];
           newKeySettings[cursor] = event.key;
+          localStorage.setItem('keySettings',newKeySettings.toString());
           return newKeySettings
         });
       }
@@ -54,6 +56,7 @@ export default function KeySettings({ mode }) {
         setDrum4(prev => {
           const newKeySettings = [...prev];
           newKeySettings[cursor] = event.key;
+          localStorage.setItem('keySettings',newKeySettings.toString());
           return newKeySettings
         });
       }
