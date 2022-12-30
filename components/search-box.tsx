@@ -12,8 +12,9 @@ export default function SearchBox({ mode, setChartSets }) {
         "&min_cs=4&max_cs=4&mode=3",
         "&min_cs=7&max_cs=7&mode=3",
         "&mode=1"][mode];
+    const query = value ? `query=${value}` : "status=1"
     const search = () => {
-        fetch(`https://api.chimu.moe/v1/search?query=${value}&amount=100${params}`)
+        fetch(`https://api.chimu.moe/v1/search?${query}&amount=100${params}`)
             .then((res) => res.json())
             .then((data) => {
                 data["data"].sort((a, b) =>

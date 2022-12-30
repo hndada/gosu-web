@@ -20,7 +20,7 @@ export default function ChoicePage() {
     const [chartIndex, setChartIndex] = useState<number>();
     // const [chosen, setChosen] = useState<number>(0);
     useEffect(() => {
-        fetch(`https://api.chimu.moe/v1/search?query=${""}`)
+        fetch(`https://api.chimu.moe/v1/search?status=1&amount=100`)
             .then((res) => res.json())
             .then((data) => {
                 setChartSets(data["data"])

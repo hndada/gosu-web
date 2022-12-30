@@ -15,7 +15,8 @@ export default function MusicPanel({ chartSet }) {
         return null
     }
     let child = chartSet.ChildrenBeatmaps[0];
-    return <div className={styles.info} style={{ '--image-url': `url(${coverURL(chartSet.SetId, false)})` }}>
+    return <div className={styles.info}
+        style={{ '--image-url': `url(${coverURL(chartSet.SetId, false)})` }}>
         <div className={styles["music"]}>
             <div className={styles["music-name"]}>{chartSet.Title}</div>
             <div className={styles["artist-name"]}>{chartSet.Artist}</div>
@@ -36,8 +37,8 @@ export default function MusicPanel({ chartSet }) {
             <div className={styles["bpm"]}> BPM: {child.BPM}</div>
         </div>
         {/* <div className={styles["level"]}> */}
-            {/* <div className={styles["level-number"]}>Level: {parseLevel(child.DifficultyRating)}</div> */}
-            {/* <div className="note-count"></div> */}
+        {/* <div className={styles["level-number"]}>Level: {parseLevel(child.DifficultyRating)}</div> */}
+        {/* <div className="note-count"></div> */}
         {/* </div> */}
     </div>;
 }

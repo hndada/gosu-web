@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@zip.js/zip.js": "^2.6.61",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
