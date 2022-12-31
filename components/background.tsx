@@ -17,8 +17,8 @@ const style = css`
     /* z-index: -1; */
 `
 
-export default function Background({ chosenChartSetID }) {
-    return <div css={style} style={{ backgroundImage: `url(${coverURL(chosenChartSetID, true)})` }} ></div>
+export default function Background({ setID }) {
+    return <div css={style} style={{ backgroundImage: `url(${coverURL(setID, true)})` }} ></div>
 }
 function coverURL(id, big) {
     return `https://assets.ppy.sh/beatmaps/${id}/covers/cover${big ? "@2x" : ""}.jpg`

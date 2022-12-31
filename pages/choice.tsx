@@ -42,13 +42,21 @@ export default function ChoicePage() {
     let dogID = 723231;
     let chartSet = chartSets[chartSetIndex];
     let charts = chartSet?.ChildrenBeatmaps;
+    if (chartSetIndex === undefined || chartSet == undefined) {
+        return <>
+            <Background setID={dogID} />
+            <SearchBox mode={mode} setChartSets={setChartSets} />
+            <ModeButton mode={mode} setMode={setMode} />
+            <KeySettings mode={mode} />
+        </>
+    }
     return <>
-        {chartSetIndex === undefined ?
-            <Background chosenChartSetID={dogID} /> :
-            <Background chosenChartSetID={chartSet.SetId} />}
+        {chartSetIndex === undefined || chartSet == null ?
+            <Background setID={dogID} /> :
+            <Background setID={chartSet.SetId} />}
         <SearchBox mode={mode} setChartSets={setChartSets} />
         {chartSet != undefined && <MusicPanel chartSet={chartSet} />}
-        <PreviewPlayer setID={chartSet.SetId} muted={muted} />
+        {chartSet != undefined && <PreviewPlayer setID={chartSet.SetId} muted={muted} />}
         <MusicList chartSets={chartSets} setChartSetIndex={setChartSetIndex} />
         <ChartList mode={mode} charts={charts} chartIndex={chartIndex} setChartIndex={setChartIndex} />
         <ModeButton mode={mode} setMode={setMode} />
