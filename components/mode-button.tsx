@@ -101,7 +101,6 @@ const style = css`
 export default function ModeButton({mode, setMode}) {
     const handleClick = () => {
         setMode((mode) => (mode + 1) % 3);
-        console.log(mode)
     };
     return (
         <button css={style} onClick={handleClick}> 

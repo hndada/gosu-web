@@ -23,7 +23,6 @@ export default function ChartList({ mode, charts, chartIndex, setChartIndex }) {
 
     const playChart = (i) => {
         let chart = charts[i];
-        console.log(i, charts)
         window.open('/play', '_blank');
         localStorage.setItem('setID', chart.ParentSetId);
         localStorage.setItem('osuMode', chart.Mode);
