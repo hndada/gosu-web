@@ -2,7 +2,5 @@
 import Select from './choice'
 
 export default function IndexPage() {
-  return (
-    <Select />
-  )
+  return <Select />
 }

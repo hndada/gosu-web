@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 
 const style = css`
 margin: auto;
-align-items: center; // Bar를 가운데로 옮기기 위함
+align-items: center; // to locate Bar on the center
 display: flex;
 
 .bar {
@@ -65,7 +65,7 @@ export default function LoadingPage() {
       background-color: cadetblue;
       width: 100vw;
       height: 100vh;
-      display: flex; // Loader를 가운데로 옮기기 위함
+      display: flex; // to set Loader on the center
       align-items: center;
     `}>
       <div css={kbdStyle}>

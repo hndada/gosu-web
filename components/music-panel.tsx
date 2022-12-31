@@ -1,22 +1,13 @@
-import { useRef, useState, useEffect } from "react";
 import styles from "../components/music-panel.module.css";
 
-// style={{css`
-//         'position': 'relative';
-//         '&::before': {
-//             backgroundImage: `url(${coverURL(chartSet.SetId, false)})`;
-//         };`
-//     }}
-
-// style={{ backgroundImage: `url(${coverURL(chartSet.SetId, false)})` }}
-// 오류 무시 가능
 export default function MusicPanel({ chartSet }) {
     if (chartSet.ChildrenBeatmaps.length === 0) {
         return null
     }
+    // error occurring on style attribute is from typescript, hence can be ignored
     let child = chartSet.ChildrenBeatmaps[0];
     return <div className={styles.info}
-        style={{ '--image-url': `url(${coverURL(chartSet.SetId, false)})` }}>
+        style={{ '--image-url': `url(${coverURL(chartSet.SetId, false)})` }}> 
         <div className={styles["music"]}>
             <div className={styles["music-name"]}>{chartSet.Title}</div>
             <div className={styles["artist-name"]}>{chartSet.Artist}</div>

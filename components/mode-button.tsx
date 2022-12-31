@@ -97,15 +97,12 @@ const style = css`
     color: yellow;
 }
 `
-// style={{backgroundColor: color}}
-// className={`button${mode}`}
+
 export default function ModeButton({mode, setMode}) {
-    // const ref=useRef(null);
     const handleClick = () => {
         setMode((mode) => (mode + 1) % 3);
         console.log(mode)
     };
-    // const color = mode === 0 ? 'button-red' : mode === 1 ? 'green' : 'blue';
     return (
         <button css={style} onClick={handleClick}> 
             <span className="shadow"></span>

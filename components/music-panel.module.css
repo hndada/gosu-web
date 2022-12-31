@@ -5,7 +5,6 @@
     height: 25vh;
     border: 5px solid rgb(230, 252, 179);
     /* border-style: ridge; */
-    /* padding : border와 content사이에 주는 간격 */
     /* margin: 5px; */
     /* padding: 5px; */
     /* margin-top: -10px; */
@@ -19,8 +18,8 @@
     box-shadow: 19px 19px 38px #bebebe,
         -19px -19px 38px #ffffff;
 }
-/* :first-child: 요소가 맏이일 경우에만 선택 */
-/* ::before: 요소의 맏이를 생성하여 선택 */
+/* :first-child: select only if element is the first */
+/* ::before: generate element's foremost child then select it */
 .info::before {
     content: '';
     display: block;
@@ -34,21 +33,18 @@
 }
 
 .music {
-    /* 좌상 */
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
 .chart {
-    /* 좌하 */
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
 
 .level {
-    /* 우하 */
     text-align: right;
     position: absolute;
     top: 10px;
@@ -56,7 +52,6 @@
 }
 
 .time {
-    /* 우상 */
     text-align: right;
     position: absolute;
     bottom: 10px;

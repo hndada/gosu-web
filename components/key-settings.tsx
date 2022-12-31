@@ -21,6 +21,13 @@ const style = css`
   border-color: darkcyan;
 }
 `
+function keyName(k) {
+  let k2 = k.replace('Key', '').replace('Numpad', '')
+  if (k2.length === 1) {
+    k2 = k2.toUpperCase()
+  }
+  return k2
+}
 export default function KeySettings({ mode }) {
   const [piano4, setPiano4] = useState(['D', 'F', 'J', 'K']);
   const [piano7, setPiano7] = useState(['S', 'D', 'F', 'Space', 'J', 'K', 'L']);
@@ -58,7 +65,7 @@ export default function KeySettings({ mode }) {
           return newKeySettings
         });
       }
-      setCursor(prev => prev + 1) // 함수가 인자로 들어오면 prev가 getter로 동작
+      setCursor(prev => prev + 1) // prev works as getter if args is a function.
     };
     window.addEventListener('keydown', handleKeydown);
     return () => {
@@ -66,11 +73,8 @@ export default function KeySettings({ mode }) {
     };
   }, [cursor]);
 
-  // let keySettings = [piano4, piano7, drum4][mode];
-  // let setKeySettings [setPiano4, setPiano7, setDrum4][mode];
-
   return <div css={style} onClick={() => {
-    setCursor(0);
+    setCursor(0); // clear key settings
     {
       mode === 0 ? Array(4).fill(undefined) :
         mode === 1 ? Array(7).fill(undefined) :
@@ -87,61 +91,6 @@ export default function KeySettings({ mode }) {
       </div>
     ))}
   </div>
-
-
-
-  // let defaultKeySettingsSet = [
-  //   ['d', 'f', 'j', 'k'],
-  //   ['s', 'd', 'f', ' ', 'j', 'k', 'l'],
-  //   ['z', 'x', 'c', 'v']
-  // ]
-
-
-  // const [keySettings, setKeySettings] = useState(defaultKeySettings); // useState(['D', 'F', 'J', 'K']);
-  // const [cursor, setCursor] = useState<number>(keySettings.length);
-  // let maxKeyLength = mode === 1 ? 7 : 4;
-  // // console.log(mode, maxKeyLength);
-  // // onClick되면 cursor = 0, keySettings 비우기
-  // // cursor <  length 면 keydown 들어온 키 이름을 cursor 에 입력, cursor++
-  // // cursor >= length 되면 인풋 안 받음
-
-  // useEffect(() => {
-  //   setKeySettings(defaultKeySettings);
-  // }, [defaultKeySettings]);
-
-  // useEffect(() => {
-  //   const handleKeydown = (event) => {
-  //     if (cursor >= maxKeyLength) { return }
-  //     setKeySettings(prev => {
-  //       const newKeySettings = [...prev];
-  //       newKeySettings[cursor] = event.key;
-  //       return newKeySettings
-  //     });
-  //     setCursor(prev => prev + 1) // 함수가 인자로 들어오면 prev가 getter로 동작
-  //   };
-  //   window.addEventListener('keydown', handleKeydown);
-  //   return () => {
-  //     window.removeEventListener('keydown', handleKeydown);
-  //   };
-  // }, [cursor]);
-
-  // return <div css={style} onClick={() => {
-  //   setCursor(0);
-  //   setKeySettings(Array(keySettings.length).fill(undefined));
-  // }}>
-  //   {Array(keySettings.length).fill(0).map((_, i) => (
-  //     <div className="key" style={cursor === i ? { backgroundColor: "yellow" } : undefined}>
-  //       {keySettings[i]}
-  //     </div>
-  //   ))}
-  // </div>
 }
 
 // https://www.sliderrevolution.com/resources/css-range-slider/
-function keyName(k) {
-  let k2 = k.replace('Key', '').replace('Numpad', '')
-  if (k2.length === 1) {
-    k2 = k2.toUpperCase()
-  }
-  return k2
-}

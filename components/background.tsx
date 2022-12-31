@@ -21,6 +21,5 @@ export default function Background({ chosenChartSetID }) {
     return <div css={style} style={{ backgroundImage: `url(${coverURL(chosenChartSetID, true)})` }} ></div>
 }
 function coverURL(id, big) {
-    // id = 241526
     return `https://assets.ppy.sh/beatmaps/${id}/covers/cover${big ? "@2x" : ""}.jpg`
 }
