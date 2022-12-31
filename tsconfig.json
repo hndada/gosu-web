@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/music-panel.js", "components/music-list.js"  ],
   "exclude": [
     "node_modules"
   ]
