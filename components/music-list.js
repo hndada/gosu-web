@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import styles from "../components/music-list.module.css";
 
-
 export default function MusicList({ chartSets, setChartSetIndex }) {
     return <div className={styles["music-list"]}>
         {[...chartSets].map((chartSet, i) => (
