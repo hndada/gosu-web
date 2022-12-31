@@ -22,41 +22,39 @@ const style = css`
 }
 `
 export default function KeySettings({ mode }) {
-  const [piano4, setPiano4] = useState(['d', 'f', 'j', 'k']);
-  const [piano7, setPiano7] = useState(['s', 'd', 'f', ' ', 'j', 'k', 'l']);
-  const [drum4, setDrum4] = useState(['z', 'x', 'c', 'v']);
+  const [piano4, setPiano4] = useState(['D', 'F', 'J', 'K']);
+  const [piano7, setPiano7] = useState(['S', 'D', 'F', 'Space', 'J', 'K', 'L']);
+  const [drum4, setDrum4] = useState(['Z', 'X', 'C', 'V']);
   const [cursor, setCursor] = useState<number>(10);
+  localStorage.setItem('keyPiano4', piano4.toString())
+  localStorage.setItem('keyPiano7', piano7.toString());
+  localStorage.setItem('keyDrum4', drum4.toString());
 
   let maxKeyLength = mode === 1 ? 7 : 4;
   useEffect(() => {
     const handleKeydown = (event) => {
       if (cursor >= maxKeyLength) { return }
-      // let set =
-      //   mode === 0 ? setPiano4 :
-      //     mode === 1 ? setPiano7 :
-      //       mode === 2 ? setDrum4 :
-      //         null;
       if (mode === 0) {
         setPiano4(prev => {
           const newKeySettings = [...prev];
-          newKeySettings[cursor] = event.key;
-          localStorage.setItem('keySettings',newKeySettings.toString());
+          newKeySettings[cursor] = event.code.replace('Key', '');
+          localStorage.setItem('keyPiano4', newKeySettings.toString());
           return newKeySettings
         });
       }
       if (mode === 1) {
         setPiano7(prev => {
           const newKeySettings = [...prev];
-          newKeySettings[cursor] = event.key;
-          localStorage.setItem('keySettings',newKeySettings.toString());
+          newKeySettings[cursor] = event.code.replace('Key', '');
+          localStorage.setItem('keyPiano7', newKeySettings.toString());
           return newKeySettings
         });
       }
       if (mode === 2) {
         setDrum4(prev => {
           const newKeySettings = [...prev];
-          newKeySettings[cursor] = event.key;
-          localStorage.setItem('keySettings',newKeySettings.toString());
+          newKeySettings[cursor] = event.code.replace('Key', '');
+          localStorage.setItem('keyDrum4', newKeySettings.toString());
           return newKeySettings
         });
       }
@@ -82,9 +80,9 @@ export default function KeySettings({ mode }) {
   }}>
     {Array(maxKeyLength).fill(0).map((_, i) => (
       <div className="key" style={cursor === i ? { backgroundColor: "yellow" } : undefined}>
-        {mode === 0 ? piano4[i].toUpperCase()
-          : mode === 1 ? piano7[i].toUpperCase()
-            : mode === 2 ? drum4[i].toUpperCase()
+        {mode === 0 ? keyName(piano4[i])
+          : mode === 1 ? keyName(piano7[i])
+            : mode === 2 ? keyName(drum4[i])
               : null}
       </div>
     ))}
@@ -140,3 +138,10 @@ export default function KeySettings({ mode }) {
 }
 
 // https://www.sliderrevolution.com/resources/css-range-slider/
+function keyName(k) {
+  let k2 = k.replace('Key', '').replace('Numpad', '')
+  if (k2.length === 1) {
+    k2 = k2.toUpperCase()
+  }
+  return k2
+}
