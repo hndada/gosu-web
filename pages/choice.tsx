@@ -19,6 +19,7 @@ export default function ChoicePage() {
     // const [chart, setChart] = useState<any>();
     const [chartIndex, setChartIndex] = useState<number>();
     // const [chosen, setChosen] = useState<number>(0);
+    const [muted, setMuted] = useState<boolean>(false);
     useEffect(() => {
         fetch(`https://api.chimu.moe/v1/search?status=1&amount=100`)
             .then((res) => res.json())
@@ -27,18 +28,26 @@ export default function ChoicePage() {
             });
     }, []);
 
+    // useEffect(() => {
+        // if (!chartSets) { return }
+        // let music = chartSets[chartSetIndex]
+        // let chart = music.ChildrenBeatmaps[chartIndex];
+    // }, [chartIndex]);
+
     useEffect(() => {
-        if (!chartSets) { return }
-        let chart = chartSets[chartSetIndex].ChildrenBeatmaps[chartIndex];
-        window.open('/play', '_blank');
-        localStorage.setItem('setID', chart.ParentSetId);
-        localStorage.setItem('mode', chart.Mode);
-        localStorage.setItem('cs', chart.CS);
-        localStorage.setItem('osuFile', chart.OsuFile);
-        localStorage.setItem('downloadPath', chart.DownloadPath);
-        // playChart({ chart, });
-        // 파라미터 전달: chart, keySettings
-    }, [chartIndex]);
+        function handleVisibilityChange() {
+          if (document.hidden) {
+            setMuted(true);
+          } else {
+            setMuted(false);
+          }
+        }
+        window.addEventListener('visibilitychange', handleVisibilityChange);
+        // Remove the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+      }, []);
 
     if (!chartSets) {
         return <Loading />
@@ -56,9 +65,9 @@ export default function ChoicePage() {
             <Background chosenChartSetID={chartSet.SetId} />}
         <SearchBox mode={mode} setChartSets={setChartSets} />
         {chartSet != undefined && <MusicPanel chartSet={chartSet} />}
-        <PreviewPlayer setID={chartSet.SetId} />
+        <PreviewPlayer setID={chartSet.SetId} muted={muted} />
         <MusicList chartSets={chartSets} setChartSetIndex={setChartSetIndex} />
-        <ChartList mode={mode} charts={charts} setChartIndex={setChartIndex} />
+        <ChartList mode={mode} charts={charts} chartIndex={chartIndex} setChartIndex={setChartIndex} />
         <ModeButton mode={mode} setMode={setMode} />
         <KeySettings mode={mode} />
     </>

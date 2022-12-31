@@ -8,19 +8,22 @@ const style = css`
     transition: translateX(-50%);
     z-index: 2;
 `
-export default function PreviewPlayer({ setID }) {
+export default function PreviewPlayer({ setID, muted }) {
     // setID가 바뀌면, preview 오디오 파일 요청
     const ref = useRef<HTMLAudioElement>(null);
     useEffect(() => {
         ref.current.volume = 0.15;
         // audioRef.current.play();
     }, []);
+    useEffect(() => {
+        ref.current.muted = muted
+    }, [muted])
     return (
         <audio css={style}
-        ref={ref}
-        autoPlay
-        controls
-        // onEnded={handleOnEnded}
+            ref={ref}
+            autoPlay
+            controls
+            // onEnded={handleOnEnded}
             src={`https://b.ppy.sh/preview/${setID}.mp3`}
             loop
         />

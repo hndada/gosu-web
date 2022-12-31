@@ -1,5 +1,6 @@
 import Loading from "@Components/loading";
-import { useState } from "react";
+import { css } from "@emotion/react";
+import { useEffect, useState } from "react";
 const format = {
     "BeatmapId": 713545,
     "ParentSetId": 320687,
@@ -22,8 +23,15 @@ const format = {
 }
 
 // keySettings, []string으로 바꿔주기?
-export default function PlayPage({ chart, keySettings }) {
-    return <iframe src="/play.html" width="1600" height="900" />;
+// { chart, keySettings }
+export default function PlayPage() {
+    // const [ready, setReady] = useState<boolean>(false);
+    // useEffect(() => { setReady(true) }, [])
+    // return <>
+    //     {ready ? <Loading /> : <iframe src="/play.html" width="100%" height="100%" />}
+    // </>
+
+    return <iframe src="/play.html" width="100%" height="100%" />
 }
 
 // fetch(`https://api.chimu.moe/v1/${chart.DownloadPath}`)

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>집에가고싶다.</title>
-    </head>
-    <body>
-        <!-- <input type="text" id="argument" /> -->
-        <button id="start" disabled onclick="run()">시작!</button>
-        <script src="wasm_exec.js"></script>
-        <script>
-            const $argument = document.getElementById("argument");
-            const $start = document.getElementById("start");
-            const go = new Go();
-            let module;
-            let instance;
+<script src="wasm_exec.js"></script>
+<script>
+    // Polyfill
+    if (!WebAssembly.instantiateStreaming) {
+        WebAssembly.instantiateStreaming = async (resp, importObject) => {
+            const source = await (await resp).arrayBuffer();
+            return await WebAssembly.instantiate(source, importObject);
+        };
+    }
 
-            WebAssembly.instantiateStreaming(fetch("/play.wasm"), go.importObject).then(result => {
-                module = result.module;
-                instance = result.instance;
-                $start.disabled = false;
-            });
-            async function run(){
-                await go.run(instance);
-                instance = await WebAssembly.instantiate(module, go.importObject);
-            }
-        </script>
-    </body>
-</html>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("play.wasm"), go.importObject).then(result => {
+        go.run(result.instance);
+    });
+</script>
+<script>
+    const handleESC = (e) => {
+        console.log(e.key);
+        if (e.key === 'Escape') {
+            console.log("esc pressed");
+            window.parent.close();
+        }
+    };
+    window.addEventListener('keydown', handleESC);
+    html = document.getElementsByTagName('html');
+    html[0].style.height = "99%";
+    setInterval(() => {
+        if (html[0].style.height == "100%") {
+            html = document.getElementsByTagName('html');
+            html[0].style.height = "99%";
+        }
+    }, 50)
+    document.title="gosu"
+</script>

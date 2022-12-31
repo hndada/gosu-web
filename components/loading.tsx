@@ -14,13 +14,13 @@ display: flex;
   animation: scale-up4 1s linear infinite;
 }
 
-.bar:nth-child(2) {
+.bar:nth-of-type(2) {
   height: 135px;
   margin: 0 8px;
   animation-delay: .25s;
 }
 
-.bar:nth-child(3) {
+.bar:nth-of-type(3) {
   animation-delay: .5s;
 }
 
