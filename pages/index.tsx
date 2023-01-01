@@ -1,7 +1,4 @@
-// import Link from 'next/link'
-import { Routes, Route, Router } from 'react-router-dom'
 import Choice from './choice'
-import Play from './play'
 
 export default function IndexPage() {
   return <Choice />
