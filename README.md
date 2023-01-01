@@ -1,10 +1,10 @@
 # gosu web
-[gosu repo](http://github.com/hndada/gosu)
+Site: [http://gosu-web-orcin.vercel.app/](http://gosu-web-orcin.vercel.app/)
 
-# Deploy
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Source: [http://github.com/hndada/gosu](http://github.com/hndada/gosu)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/hello-world&project-name=hello-world&repository-name=hello-world)
+
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example)
 
 # Special Thanks
-[Daldalso](https://github.com/daldalso)
+달달소 ([https://github.com/daldalso](https://github.com/daldalso))
