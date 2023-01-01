@@ -22,15 +22,15 @@ export default function ChartList({ mode, charts, chartIndex, setChartIndex }) {
     //     }
     // })
     // newCharts.sort((a, b) => a.DifficultyRating - b.DifficultyRating);
-    const router = useRouter()
+    // const router = useRouter()
     const playChart = (i) => {
         let chart = charts[i];
-        console.log(router.pathname)
-        if (router.pathname==='/'){
-            window.open('/play', '_blank');
-        } else {
-            window.open(router.pathname + '/play', '_blank')
-        }
+        window.open('/play', '_blank');
+        // console.log(router.pathname)
+        // if (router.pathname==='/'){
+        // } else {
+        //     window.open(router.pathname + '/play', '_blank')
+        // }
         localStorage.setItem('setID', chart.ParentSetId);
         localStorage.setItem('osuMode', chart.Mode);
         localStorage.setItem('cs', chart.CS);
