@@ -55,7 +55,9 @@ export default function ChartList({ mode, charts, chartIndex, setChartIndex }) {
                             setChartIndex(i);
                             playChart(i);
                         } :
-                        () => { }
+                        () => { 
+                            alert("mismatch between mode and chart!")
+                        }
                 }>
                 {chart.DiffName}
                 <br />
