@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "./chart-list.module.css"
 
 function target(mode, chart) {
@@ -20,33 +22,39 @@ export default function ChartList({ mode, charts, chartIndex, setChartIndex }) {
     //     }
     // })
     // newCharts.sort((a, b) => a.DifficultyRating - b.DifficultyRating);
-
+    const router = useRouter()
     const playChart = (i) => {
         let chart = charts[i];
-        window.open('/play', '_blank');
+        console.log(router.pathname)
+        if (router.pathname==='/'){
+            window.open('/play', '_blank');
+        } else {
+            window.open(router.pathname + '/play', '_blank')
+        }
         localStorage.setItem('setID', chart.ParentSetId);
         localStorage.setItem('osuMode', chart.Mode);
         localStorage.setItem('cs', chart.CS);
         localStorage.setItem('osuFile', chart.OsuFile);
         localStorage.setItem('chartName', chart.DiffName)
         localStorage.setItem('downloadPath', chart.DownloadPath);
+        // return <Link href='/play' target='_blank' />
     }
     return <div className={styles["chart-list"]}>
         {charts.map((chart, i) => ( // newCharts
-            <div className={styles["chart-item"]} key={i} 
-            // style={!!target(mode, chart) && "filter:brightness(0%);"}
-            onClick={
-                target(mode, chart) ?
-                    (event) => {
-                        event.currentTarget.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                        setChartIndex(i);
-                        playChart(i);
-                    } :
-                    () => { }
-            }>
+            <div className={styles["chart-item"]} key={i}
+                // style={!!target(mode, chart) && "filter:brightness(0%);"}
+                onClick={
+                    target(mode, chart) ?
+                        (event) => {
+                            event.currentTarget.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                            setChartIndex(i);
+                            playChart(i);
+                        } :
+                        () => { }
+                }>
                 {chart.DiffName}
                 <br />
                 Level: {Math.floor(parseLevel(chart.DifficultyRating))}
