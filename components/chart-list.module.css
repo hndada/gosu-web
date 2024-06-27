@@ -1,47 +1,46 @@
 .chart-list {
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    /* make the flexbox layout vertical */
-    color: white;
-    /* transform: translate(0%, -50%); */
-    position: absolute;
-    left: 10px;
-    /* top: 40vh; */
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    -webkit-scroll-behavior: smooth;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  /* make the flexbox layout vertical */
+  color: white;
+  /* transform: translate(0%, -50%); */
+  position: absolute;
+  left: 10px;
+  /* top: 40vh; */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
 }
 
 .chart-list::before {
-    content: '';
-    /* height: 50%; */
-    /* set the height of the pseudo-element to the height of the screen */
-    visibility: hidden;
-    /* hide the pseudo-element */
-    position: relative;
-    /* padding-top: 40vh; */
+  content: "";
+  /* height: 50%; */
+  /* set the height of the pseudo-element to the height of the screen */
+  visibility: hidden;
+  /* hide the pseudo-element */
+  position: relative;
+  /* padding-top: 40vh; */
 }
 
 .chart-list::after {
-    content: '';
-    position: relative;
-    padding-bottom: 40vh;
-    /* make the last item a relative position element */
-    /* bottom: 50%; */
-    /* align the last item with the middle of the screen */
+  content: "";
+  position: relative;
+  padding-bottom: 40vh;
+  /* make the last item a relative position element */
+  /* bottom: 50%; */
+  /* align the last item with the middle of the screen */
 }
 
 .chart-list::-webkit-scrollbar {
-    width: 0;
-    background-color: #000000;
+  width: 0;
+  background-color: #000000;
 }
 
 .chart-list::-webkit-scrollbar-thumb {
-    width: 0;
-    background-color: #000000;
+  width: 0;
+  background-color: #000000;
 }
-
 
 /* .flex-item {
     background-color: lightblue;
@@ -59,61 +58,61 @@
 } */
 
 .chart-item {
-    max-width: 400px;
-    width: 30vw;
-    /* min-width: 200px; */
-    max-height: 160px;
-    /* height: 15vh; */
-    /* min-height:  */
+  max-width: 400px;
+  width: 30vw;
+  /* min-width: 200px; */
+  max-height: 160px;
+  /* height: 15vh; */
+  /* min-height:  */
 
-    --glow-rgb: 236, 219, 251;
-    --glow-color: rgb(var(--glow-rgb));
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    /* --btn-color: rgb(100, 61, 136); */
-    border: .25em solid var(--glow-color);
-    padding: .5em 1.5em;
-    color: var(--glow-color);
-    font-size: 20px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    /* box-shadow: 0 0 1em .25em var(--glow-color), */
-    /* 0 0 4em 1em var(--glow-spread-color),
+  --glow-rgb: 236, 219, 251;
+  --glow-color: rgb(var(--glow-rgb));
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  /* --btn-color: rgb(100, 61, 136); */
+  border: 0.25em solid var(--glow-color);
+  padding: 0.5em 1.5em;
+  color: var(--glow-color);
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  /* box-shadow: 0 0 1em .25em var(--glow-color), */
+  /* 0 0 4em 1em var(--glow-spread-color),
         inset 0 0 .75em .25em var(--glow-color); */
-    text-shadow: 0 0 .5em var(--glow-color);
-    /* position: relative; */
-    transition: all 0.2s;
-    user-select: none;
-    word-break:keep-all;
+  text-shadow: 0 0 0.5em var(--glow-color);
+  /* position: relative; */
+  transition: all 0.2s;
+  user-select: none;
+  word-break: keep-all;
 }
 
 .chart-item::after {
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    /* top: 120%; */
-    left: 0;
-    /* height: 100%;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  /* top: 120%; */
+  left: 0;
+  /* height: 100%;
     width: 100%; */
-    background-color: var(--glow-spread-color);
-    filter: blur(2em);
-    opacity: .7;
-    /* transform: perspective(1.5em) rotateX(35deg) scale(1, .6); */
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  /* transform: perspective(1.5em) rotateX(35deg) scale(1, .6); */
 }
 
 .chart-item:hover {
-    color: var(--btn-color);
-    background-color: rgba(255, 255, 255, 0.552);
-    /* background-color: var(--glow-color); */
-    /* box-shadow: 0 0 1em .25em var(--glow-color),
+  color: var(--btn-color);
+  background-color: rgba(255, 255, 255, 0.552);
+  /* background-color: var(--glow-color); */
+  /* box-shadow: 0 0 1em .25em var(--glow-color),
         0 0 4em 2em var(--glow-spread-color),
         inset 0 0 .75em .25em var(--glow-color); */
 }
 
 .chart-item:active {
-    box-shadow: 0 0 0.6em .25em rgba(var(--glow-rgb), 0.75);
-    /* 0 0 2.5em 2em rgba(var(--glow-spread-color), 0.75),
+  box-shadow: 0 0 0.6em 0.25em rgba(var(--glow-rgb), 0.75);
+  /* 0 0 2.5em 2em rgba(var(--glow-spread-color), 0.75),
     inset 0 0 .5em .25em rgba(var(--glow-color)); */
 }
