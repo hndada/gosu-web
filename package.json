@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@zip.js/zip.js": "^2.6.61",
-    "next": "~14.2.10",
+    "next": "~14.2.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-virtualized": "^9.22.3"
